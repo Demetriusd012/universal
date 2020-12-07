@@ -1,0 +1,58 @@
+@import "utilities";
+
+header {
+  position: relative;
+}
+body {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  font-family: Roboto;
+  color: #fff;
+  background: #333;
+  border: solid 2px blue;
+  overflow: hidden;
+  z-index: 1;
+
+  div:nth-child(1) {
+    position: relative;
+    width: 55%;
+    height: 20%;
+    border: solid red 2px;
+    @extend %div-shared;
+    img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  div:nth-child(2) {
+    @extend %div-shared;
+  }
+
+  div:nth-child(3) {
+    border: 2px white solid;
+    @extend %div-shared;
+    display: inline-block;
+  }
+
+  .logo {
+    grid-area: logo;
+    font-size: 6rem;
+  }
+}
+
+%div-shared {
+  margin: 2rem;
+}
+
+body::before {
+  content: "";
+  background: url(../images/background.jpeg) no-repeat center center/cover;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.4;
+}
